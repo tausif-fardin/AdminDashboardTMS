@@ -1,0 +1,92 @@
+﻿@using AdminPart.Models.Entity
+
+@model AdminPart.Models.Entity.AdminUserModel
+
+<link rel="stylesheet" href="~/Css/StyleDashboard.css">
+
+
+
+<!-- The sidebar -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="~/Css/SidebarStyle.css">
+
+<div class="sidebar">
+    <a class="active" href="/Admin/Dashboard">Dashboard</a>
+    <a href="/Admin/Details">Profile</a>
+    <a href="#about">About</a>
+    <a href="/Accounts/LogOut">Sign out</a>
+
+</div>
+
+<!-- Page content -->
+<div class="content">
+    <div id="demo">
+        <!-- Responsive table starts here -->
+        <!-- For correct display on small screens you must add 'data-title' to each 'td' in your table -->
+        <h1 class="display-4">Users List</h1>
+        <div class="table-responsive-vertical shadow-z-1">
+            <!-- Table starts here -->
+            <table id="table" class="table table-hover table-mc-light-blue">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">UserId</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Password</th>
+                        <th scope="col">Role</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var u in Model.UsersModels)
+                    {
+                        <tr>
+                            <th scope="row">@u.userid</th>
+                            <td>@u.username</td>
+                            <td>@u.password</td>
+                            <td>@u.role</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <h1 class="display-4">Admins List</h1>
+        <div class="table-responsive-vertical shadow-z-1">
+            <!-- Table starts here -->
+            <table id="table" class="table table-hover table-mc-light-blue">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">AdminId</th>
+                        <th scope="col">Admin Name</th>
+                        <th scope="col">Password</th>
+                        <th scope="col">Role</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var u in Model.AdminModels)
+                    {
+                        <tr>
+                            <th scope="row">@u.adminid</th>
+                            <td>@u.adminname</td>
+                            <td>@u.password</td>
+                            <td>admin</td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = u.adminid }) |
+                                @Html.ActionLink("Details", "Details", new { id = u.adminid }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = u.adminid })
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+
+<script src="~/Js/DashboardScript.js"></script>

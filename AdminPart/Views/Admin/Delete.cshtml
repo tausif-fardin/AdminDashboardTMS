@@ -1,0 +1,13 @@
+﻿@model AdminPart.Models.Entity.AdminModel
+@{
+    ViewBag.Title = "Delete";
+}
+<h2>Delete</h2>
+<form action="/Admin/Delete" method="post">
+    <h3>Are you sure to delete the following?</h3>
+    <h4>Name: @Model.adminname</h4>
+    <h4>Id: @Model.adminid</h4>
+    <input type="hidden" name="Id" value="@Model.adminid">
+    <input type="submit" value="Delete">
+
+</form>

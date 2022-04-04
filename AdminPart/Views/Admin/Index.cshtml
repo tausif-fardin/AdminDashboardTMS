@@ -1,0 +1,18 @@
+﻿<!-- The sidebar -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="~/Css/SidebarStyle.css">
+
+<div class="sidebar">
+    <a class="active" href="#home">Home</a>
+    <a href="/Admin/Dashboard">Users</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a>
+    <a href="/Accounts/LogOut">Sign out</a>
+
+</div>
+
+<!-- Page content -->
+<div class="content">
+    @Html.Action("Index", "Home")
+</div>
+
